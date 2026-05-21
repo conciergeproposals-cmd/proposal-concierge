@@ -128,18 +128,18 @@ export function Nav() {
             aria-modal="true"
             aria-label="Navigation menu"
             className="fixed inset-0 z-30 bg-cream flex flex-col items-center justify-center lg:hidden"
-            initial={shouldReduceMotion ? false : { opacity: 0 }}
+            initial={shouldReduceMotion ? false : { opacity: 0.3 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.25 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
           >
             <ul className="space-y-6 text-center" role="list">
               {LINKS.map(({ href, label }, i) => (
                 <motion.li
                   key={href}
-                  initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+                  initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: shouldReduceMotion ? 0 : i * 0.07, duration: 0.4 }}
+                  transition={{ delay: shouldReduceMotion ? 0 : i * 0.05, duration: 0.25 }}
                 >
                   <button
                     onClick={() => handleNav(href)}
@@ -152,9 +152,9 @@ export function Nav() {
             </ul>
             <motion.div
               className="mt-10"
-              initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+              initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: shouldReduceMotion ? 0 : 0.45, duration: 0.4 }}
+              transition={{ delay: shouldReduceMotion ? 0 : 0.3, duration: 0.25 }}
             >
               <button
                 onClick={() => handleNav('booking')}

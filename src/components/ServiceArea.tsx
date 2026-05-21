@@ -23,7 +23,7 @@ const CITIES = [
 
 export function ServiceArea() {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-80px 0px' })
+  const inView = useInView(ref, { once: true, margin: '-10px 0px' })
   const shouldReduceMotion = useReducedMotion()
 
   return (
@@ -31,9 +31,9 @@ export function ServiceArea() {
       <motion.div
         ref={ref}
         className="max-w-4xl mx-auto text-center"
-        initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+        initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.35 }}
       >
         <div className="flex justify-center mb-5" aria-hidden="true">
           <MapPin size={22} className="text-gold" />

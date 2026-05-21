@@ -6,7 +6,7 @@ import { scrollToSection } from '@/lib/scroll'
 
 export function Addons() {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-80px 0px' })
+  const inView = useInView(ref, { once: true, margin: '-10px 0px' })
   const shouldReduceMotion = useReducedMotion()
 
   return (
@@ -14,9 +14,9 @@ export function Addons() {
       <motion.div
         ref={ref}
         className="max-w-2xl mx-auto text-center"
-        initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+        initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.35 }}
       >
         <div className="flex items-center justify-center gap-3 mb-10" aria-hidden="true">
           <span className="block w-12 h-px bg-gold/50" />
@@ -41,9 +41,9 @@ export function Addons() {
 
         <motion.div
           className="mt-10"
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+          initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55, delay: shouldReduceMotion ? 0 : 0.25 }}
+          transition={{ duration: 0.35, delay: shouldReduceMotion ? 0 : 0.15 }}
         >
           <button
             onClick={() => scrollToSection('booking')}

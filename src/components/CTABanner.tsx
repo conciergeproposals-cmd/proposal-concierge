@@ -16,7 +16,7 @@ export function CTABanner({
   buttonLabel = 'Book Free Consultation',
 }: CTABannerProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-40px 0px' })
+  const inView = useInView(ref, { once: true, margin: '-10px 0px' })
   const shouldReduceMotion = useReducedMotion()
 
   return (
@@ -27,9 +27,9 @@ export function CTABanner({
       <motion.div
         ref={ref}
         className="max-w-3xl mx-auto text-center"
-        initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+        initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.35 }}
       >
         <h2 className="font-display text-3xl sm:text-4xl text-cream mb-3 tracking-wide">
           {headline}

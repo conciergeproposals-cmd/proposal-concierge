@@ -105,7 +105,7 @@ function AccordionItem({ item, isOpen, onToggle }: AccordionItemProps) {
 export function FAQ() {
   const [openId, setOpenId] = useState<string | null>(null)
   const headingRef = useRef<HTMLDivElement>(null)
-  const headingInView = useInView(headingRef, { once: true })
+  const headingInView = useInView(headingRef, { once: true, margin: '-10px 0px' })
   const shouldReduceMotion = useReducedMotion()
 
   function toggle(id: string) {
@@ -117,9 +117,9 @@ export function FAQ() {
       <motion.div
         ref={headingRef}
         className="text-center mb-14"
-        initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+        initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
         animate={headingInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.35 }}
       >
         <h2 className="font-display text-4xl sm:text-5xl text-charcoal tracking-wide">
           Frequently Asked Questions
@@ -127,9 +127,9 @@ export function FAQ() {
       </motion.div>
 
       <motion.div
-        initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+        initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
         animate={headingInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, delay: shouldReduceMotion ? 0 : 0.2 }}
+        transition={{ duration: 0.35, delay: shouldReduceMotion ? 0 : 0.1 }}
       >
         {FAQS.map((item) => (
           <AccordionItem

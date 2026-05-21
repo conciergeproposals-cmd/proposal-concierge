@@ -62,15 +62,15 @@ interface PackageCardProps {
 
 function PackageCard({ pkg, delay }: PackageCardProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-60px 0px' })
+  const inView = useInView(ref, { once: true, margin: '-10px 0px' })
   const shouldReduceMotion = useReducedMotion()
 
   return (
     <motion.article
       ref={ref}
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 32 }}
+      initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.65, ease: 'easeOut', delay: shouldReduceMotion ? 0 : delay }}
+      transition={{ duration: 0.35, ease: 'easeOut', delay: shouldReduceMotion ? 0 : delay }}
       className={`relative flex flex-col justify-between p-6 sm:p-8 rounded-lg border transition-all duration-300 hover:shadow-lg ${
         pkg.featured
           ? 'border-gold/60 bg-cream'
@@ -117,7 +117,7 @@ function PackageCard({ pkg, delay }: PackageCardProps) {
 
 export function Packages() {
   const headingRef = useRef<HTMLDivElement>(null)
-  const headingInView = useInView(headingRef, { once: true })
+  const headingInView = useInView(headingRef, { once: true, margin: '-10px 0px' })
   const shouldReduceMotion = useReducedMotion()
 
   return (
@@ -125,9 +125,9 @@ export function Packages() {
       <motion.div
         ref={headingRef}
         className="text-center mb-12"
-        initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+        initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
         animate={headingInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.35 }}
       >
         <h2 className="font-display text-4xl sm:text-5xl text-charcoal mb-3 tracking-wide">
           Our Packages
@@ -142,7 +142,7 @@ export function Packages() {
         style={{ gridAutoRows: '1fr' }}
       >
         {PACKAGES.map((pkg, i) => (
-          <PackageCard key={pkg.name} pkg={pkg} delay={i * 0.1} />
+          <PackageCard key={pkg.name} pkg={pkg} delay={i * 0.07} />
         ))}
       </div>
     </section>

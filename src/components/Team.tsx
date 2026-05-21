@@ -63,8 +63,8 @@ function TeamPhoto({ src, alt, initials }: TeamPhotoProps) {
 
   return (
     <div
-      className="w-full overflow-hidden rounded-lg border border-gold/30"
-      style={{ aspectRatio: '4/5' }}
+      className="w-full overflow-hidden rounded-lg border border-gold/30 bg-cream"
+      style={{ aspectRatio: '4/5', backgroundColor: '#FAF6F1' }}
     >
       <Image
         src={src}
@@ -85,15 +85,15 @@ interface TeamCardProps {
 
 function TeamCard({ member, delay }: TeamCardProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-60px 0px' })
+  const inView = useInView(ref, { once: true, margin: '-10px 0px' })
   const shouldReduceMotion = useReducedMotion()
 
   return (
     <motion.article
       ref={ref}
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }}
+      initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.65, ease: 'easeOut', delay: shouldReduceMotion ? 0 : delay }}
+      transition={{ duration: 0.35, ease: 'easeOut', delay: shouldReduceMotion ? 0 : delay }}
       className="flex flex-col"
     >
       <TeamPhoto src={member.src} alt={member.alt} initials={member.initials} />
@@ -108,7 +108,7 @@ function TeamCard({ member, delay }: TeamCardProps) {
 
 export function Team() {
   const headingRef = useRef<HTMLDivElement>(null)
-  const headingInView = useInView(headingRef, { once: true })
+  const headingInView = useInView(headingRef, { once: true, margin: '-10px 0px' })
   const shouldReduceMotion = useReducedMotion()
 
   return (
@@ -116,9 +116,9 @@ export function Team() {
       <motion.div
         ref={headingRef}
         className="text-center mb-16"
-        initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+        initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
         animate={headingInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.35 }}
       >
         <h2 className="font-display text-4xl sm:text-5xl text-charcoal tracking-wide">
           Meet the Team
@@ -127,7 +127,7 @@ export function Team() {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-14">
         {TEAM.map((member, i) => (
-          <TeamCard key={member.name} member={member} delay={i * 0.12} />
+          <TeamCard key={member.name} member={member} delay={i * 0.08} />
         ))}
       </div>
     </section>

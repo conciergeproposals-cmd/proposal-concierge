@@ -10,6 +10,7 @@ const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
   display: 'swap',
+  preload: true,
 })
 
 const allura = Allura({
@@ -17,12 +18,14 @@ const allura = Allura({
   weight: '400',
   variable: '--font-allura',
   display: 'swap',
+  preload: true,
 })
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-dm-sans',
   display: 'swap',
+  preload: true,
 })
 
 export const metadata: Metadata = {

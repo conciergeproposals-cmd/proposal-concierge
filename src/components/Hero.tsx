@@ -53,9 +53,9 @@ export function Hero() {
             <motion.span
               key={word}
               className="inline-block mr-[0.25em] last:mr-0"
-              initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+              initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: shouldReduceMotion ? 0 : 0.2 + i * 0.12 }}
+              transition={{ duration: 0.35, ease: 'easeOut', delay: shouldReduceMotion ? 0 : 0.1 + i * 0.08 }}
             >
               {word}
             </motion.span>
@@ -65,9 +65,9 @@ export function Hero() {
         {/* Script subtitle */}
         <motion.p
           className="font-script text-burgundy text-2xl sm:text-3xl lg:text-4xl mb-10"
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+          initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: shouldReduceMotion ? 0 : 0.75 }}
+          transition={{ duration: 0.35, delay: shouldReduceMotion ? 0 : 0.45 }}
         >
           Luxury proposal planning in Toronto and the GTA.
         </motion.p>
@@ -75,9 +75,9 @@ export function Hero() {
         {/* CTAs */}
         <motion.div
           className="flex flex-col sm:flex-row items-center gap-4"
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+          initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: shouldReduceMotion ? 0 : 0.95 }}
+          transition={{ duration: 0.35, delay: shouldReduceMotion ? 0 : 0.6 }}
         >
           <button
             onClick={() => scrollToSection('booking')}
@@ -119,9 +119,9 @@ export function Hero() {
         onClick={() => scrollToSection('services')}
         className={`absolute bottom-4 left-1/2 -translate-x-1/2 text-gold/50 hover:text-gold transition-colors p-2 ${!shouldReduceMotion ? 'animate-bounce-down' : ''}`}
         aria-label="Scroll to services"
-        initial={shouldReduceMotion ? false : { opacity: 0 }}
+        initial={shouldReduceMotion ? false : { opacity: 0.3 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: shouldReduceMotion ? 0 : 1.3, duration: 0.5 }}
+        transition={{ delay: shouldReduceMotion ? 0 : 0.8, duration: 0.35 }}
       >
         <ChevronDown size={28} aria-hidden="true" />
       </motion.button>

@@ -6,7 +6,7 @@ import { motion, useInView, useReducedMotion } from 'motion/react'
 
 export function About() {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-80px 0px' })
+  const inView = useInView(ref, { once: true, margin: '-10px 0px' })
   const shouldReduceMotion = useReducedMotion()
 
   return (
@@ -14,9 +14,9 @@ export function About() {
       <motion.div
         ref={ref}
         className="max-w-2xl mx-auto text-center"
-        initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }}
+        initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.65 }}
+        transition={{ duration: 0.35 }}
       >
         {/* Gold heart */}
         <div className="flex justify-center mb-6" aria-hidden="true">

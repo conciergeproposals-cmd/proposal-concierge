@@ -14,15 +14,15 @@ interface ServiceCardProps {
 
 function ServiceCard({ icon: Icon, title, description, delay }: ServiceCardProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-60px 0px' })
+  const inView = useInView(ref, { once: true, margin: '-10px 0px' })
   const shouldReduceMotion = useReducedMotion()
 
   return (
     <motion.div
       ref={ref}
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }}
+      initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, ease: 'easeOut', delay: shouldReduceMotion ? 0 : delay }}
+      transition={{ duration: 0.35, ease: 'easeOut', delay: shouldReduceMotion ? 0 : delay }}
       className="flex flex-col items-center text-center p-8 bg-cream border border-gold/20 rounded-lg hover:border-gold/50 hover:shadow-md transition-all duration-300"
       style={{ boxShadow: '0 2px 12px rgba(201,169,97,0.06)' }}
     >
@@ -70,18 +70,17 @@ const SERVICES = [
 
 export function Services() {
   const headingRef = useRef<HTMLDivElement>(null)
-  const headingInView = useInView(headingRef, { once: true })
+  const headingInView = useInView(headingRef, { once: true, margin: '-10px 0px' })
   const shouldReduceMotion = useReducedMotion()
 
   return (
     <section id="services" className="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Heading */}
       <motion.div
         ref={headingRef}
         className="text-center mb-16"
-        initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+        initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
         animate={headingInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.35 }}
       >
         <h2 className="font-display text-4xl sm:text-5xl text-charcoal mb-5 tracking-wide">
           What We Do
@@ -93,7 +92,6 @@ export function Services() {
         </p>
       </motion.div>
 
-      {/* Cards grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
         {SERVICES.map((service, i) => (
           <ServiceCard
@@ -101,7 +99,7 @@ export function Services() {
             icon={service.icon}
             title={service.title}
             description={service.description}
-            delay={i * 0.1}
+            delay={i * 0.07}
           />
         ))}
       </div>

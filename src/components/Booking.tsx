@@ -8,7 +8,7 @@ import { InstagramIcon } from '@/components/InstagramIcon'
 
 export function Booking() {
   const headingRef = useRef<HTMLDivElement>(null)
-  const headingInView = useInView(headingRef, { once: true })
+  const headingInView = useInView(headingRef, { once: true, margin: '-10px 0px' })
   const shouldReduceMotion = useReducedMotion()
 
   return (
@@ -17,9 +17,9 @@ export function Booking() {
       <motion.div
         ref={headingRef}
         className="text-center mb-14"
-        initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+        initial={shouldReduceMotion ? false : { opacity: 0.3, y: 10 }}
         animate={headingInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.35 }}
       >
         <h2 className="font-display text-4xl sm:text-5xl text-charcoal mb-3 tracking-wide">
           Let&rsquo;s Bring Your Vision to Life
@@ -32,16 +32,15 @@ export function Booking() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
         {/* Left: Calendly */}
         <motion.div
-          initial={shouldReduceMotion ? false : { opacity: 0, x: -24 }}
+          initial={shouldReduceMotion ? false : { opacity: 0.3, x: -10 }}
           animate={headingInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.65, delay: shouldReduceMotion ? 0 : 0.1 }}
+          transition={{ duration: 0.35, delay: shouldReduceMotion ? 0 : 0.1 }}
           className="flex flex-col"
         >
           <div
             className="border border-gold/30 rounded-lg overflow-hidden"
             style={{ boxShadow: '0 4px 24px rgba(201,169,97,0.08)' }}
           >
-            {/* Skeleton placeholder */}
             <div
               className="calendly-inline-widget"
               data-url="https://calendly.com/concierge-proposals/30min?hide_gdpr_banner=1&background_color=faf6f1&primary_color=8b1538"
@@ -67,9 +66,9 @@ export function Booking() {
 
         {/* Right: Contact card */}
         <motion.div
-          initial={shouldReduceMotion ? false : { opacity: 0, x: 24 }}
+          initial={shouldReduceMotion ? false : { opacity: 0.3, x: 10 }}
           animate={headingInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.65, delay: shouldReduceMotion ? 0 : 0.2 }}
+          transition={{ duration: 0.35, delay: shouldReduceMotion ? 0 : 0.15 }}
           className="flex flex-col gap-6 pt-2"
         >
           <h3 className="font-display text-2xl text-charcoal tracking-wide">Get in Touch</h3>
