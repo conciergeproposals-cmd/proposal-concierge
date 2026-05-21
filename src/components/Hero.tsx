@@ -101,7 +101,7 @@ export function Hero() {
       >
         <div
           className={`flex whitespace-nowrap ${!shouldReduceMotion ? 'animate-marquee-left' : ''}`}
-          style={{ width: 'max-content' }}
+          style={{ width: 'max-content', willChange: 'transform', transform: 'translateZ(0)' }}
         >
           {[MARQUEE_TEXT, MARQUEE_TEXT, MARQUEE_TEXT, MARQUEE_TEXT].map((text, i) => (
             <span

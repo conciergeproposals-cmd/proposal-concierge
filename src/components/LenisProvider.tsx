@@ -9,6 +9,11 @@ interface LenisProviderProps {
 
 export function LenisProvider({ children }: LenisProviderProps) {
   useEffect(() => {
+    const isTouch =
+      window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
+      window.innerWidth < 1024
+    if (isTouch) return
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
